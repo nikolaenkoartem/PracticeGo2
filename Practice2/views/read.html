@@ -1,0 +1,20 @@
+<!-- Вывод данных о технике с помощью конструкции {{ .ИМЯ }} -->
+<div class="wrapper">
+    <p class="caption">Список всей техники</p>
+
+    {{ range .Data }}
+
+    <div class="item">
+        <p><b>Название:</b> <a href="/technics/{{ .Id }}">{{ .Name }}</a></p>
+        <p><b>Время пользования:</b> {{ .Age }} <b>Лет</b></p>
+        <p><b>Тип:</b> {{ .Type }}</p>
+        <p><b>Цена:</b> {{ .Price }} <b>Рублей</b></p>
+
+        <div class="buttons">
+            <a href="/technics/update/{{ .Id }}" class="button">Редактировать</a>
+            <a href="/technics/delete/{{ .Id }}" class="button red">Удалить</a>
+        </div>
+    </div>
+
+    {{ end }}
+</div>
